@@ -119,13 +119,13 @@
   align-items: center;
 }
 
-.traffic-intro h3, .smstraffic-intro span {
+.traffic-intro h3, .traffic-intro span {
   width: 60%;
   text-align: left;
 }
 
 @media (max-width: 768px) {
-  .traffic-intro h3, .smstraffic-intro span {
+  .traffic-intro h3, .traffic-intro span {
     width: 100%;
     text-align: left;
   }
