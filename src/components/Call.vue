@@ -33,18 +33,20 @@
         <el-col>
           <img :src="call3" alt="">
         </el-col>
-        <el-col>
+        <el-col class="loophole-reason-col">
           <el-col class="loophole-reason">
-            <h2>步骤一 获得携带受害用户 TMSI/IMSI </h2>
-            <h3>攻击者A手机监测到 2G 的寻呼消息，通过寻呼消息获取到 TMSI/IMSI 信息</h3>
-            <h2>步骤二 抢占用户信道</h2>
-            <h3>攻击者利用获得的用户标识伪造寻呼响应Paging Response消息并抢先回应</h3>
-            <h2>步骤三 劫持通话</h2>
-            <h3>攻击者接抢占到通话信道，劫持用户通话</h3>
-            <h2>步骤四 保持信道</h2>
-            <h3>攻击者拨打第三方合作攻击者电话，保持住链路，并获取受害者手机号码</h3>
-            <h2>步骤五 后续攻击</h2>
-            <h3>登陆截获短信验证码的方式，冒充用户登录业务账户（如金融、支付、网站等）</h3>
+            <h3>
+              <strong>步骤一 获得携带受害用户 TMSI/IMSI</strong> <br>
+              攻击者A手机监测到 2G 的寻呼消息，通过寻呼消息获取到 TMSI/IMSI 信息 <br>
+              <strong>步骤二 抢占用户信道</strong> <br>
+              攻击者利用获得的用户标识伪造寻呼响应Paging Response消息并抢先回应 <br>
+              <strong>步骤三 劫持通话</strong> <br>
+              攻击者接抢占到通话信道，劫持用户通话 <br>
+              <strong>步骤四 保持信道</strong> <br>
+              攻击者拨打第三方合作攻击者电话，保持住链路，并获取受害者手机号码 <br>
+              <strong>步骤五 后续攻击</strong> <br>
+              登陆截获短信验证码的方式，冒充用户登录业务账户（如金融、支付、网站等）
+            </h3>
           </el-col>
         </el-col>
       </el-container>
@@ -193,7 +195,7 @@ export default {
 }
 
 .call-intro h3, .call-intro span {
-  width: 60%;
+  width: 80%;
   text-align: left;
 }
 
@@ -230,9 +232,17 @@ img {
   border-radius: 60px;
 }
 
+.loophole-reason-col {
+  display: flex;
+}
+
 /* 漏洞原理样式 */
 .call-intro .loophole-reason {
   text-align: left;
+}
+
+.call-intro .loophole-reason h3 {
+  font-weight: 100;
 }
 
 /* 表格样式 */

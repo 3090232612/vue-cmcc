@@ -34,28 +34,26 @@
         <el-col>
           <img :src="station3" alt="">
         </el-col>
-        <el-col>
+        <el-col class="loophole-reason-col">
           <el-col class="loophole-reason">
-            <h2>步骤一 获得携带受害用户 TMSI/IMSI </h2>
-            <h3>攻击者A手机监测到 2G 的寻呼消息，通过寻呼消息获取到 TMSI/IMSI 信息</h3>
-            <h2>步骤二 抢占用户信道</h2>
-            <h3>攻击者利用获得的用户标识伪造寻呼响应Paging Response消息并抢先回应</h3>
-            <h2>步骤三 劫持通话</h2>
-            <h3>攻击者接抢占到通话信道，劫持用户通话</h3>
-            <h2>步骤四 保持信道</h2>
-            <h3>攻击者拨打第三方合作攻击者电话，保持住链路，并获取受害者手机号码</h3>
-            <h2>步骤五 后续攻击</h2>
-            <h3>登陆截获短信验证码的方式，冒充用户登录业务账户（如金融、支付、网站等）</h3>
+            <h3>
+              一、4G伪基站更改TAC值，并在广播消息中发送该TAC值，诱使终端发起TAC更新请求。<br>
+              二、伪基站可以从TAC请求中获得终端的GUTI，也可以发送标识请求获得终端的IMSI或者IMEI号码。<br>
+              三、当4G伪基站得到终端信息后，向终端发送TAU更新失败消息并释放RRC连接。<br>
+              四、在RRC释放消息重定向功能中提前写入2G伪基站频点，并将该RRC释放消息发送给终端，迫使终端接入已布置好的2G伪基站中。<br>
+            </h3>
           </el-col>
         </el-col>
       </el-container>
     </el-container>
     <el-container direction="vertical" class="station-intro">
       <h2>修复方案</h2>
-      <h2>
-        方案一：在CSFB之前开启AS安全上下文，用AS安全保护RRC release<br>
-        方案二：MME使用KASME推衍出一个KNAS_token，然后将KNAS_token给eNB，eNB发送CSFB RRC release的时候使用KNAS_token进行完保
-      </h2>
+      <el-col :span="18" offset="3">
+        <h3>
+          方案一：在CSFB之前开启AS安全上下文，用AS安全保护RRC release<br>
+          方案二：MME使用KASME推衍出一个KNAS_token，然后将KNAS_token给eNB，eNB发送CSFB RRC release的时候使用KNAS_token进行完保
+        </h3>
+      </el-col>
     </el-container>
     <el-container direction="vertical" class="station-intro">
       <h2>修复进展</h2>
@@ -140,7 +138,7 @@ export default {
 }
 
 .station-intro h3, .station-intro span {
-  width: 60%;
+  width: 80%;
   text-align: left;
 }
 
@@ -177,9 +175,16 @@ img {
   border-radius: 60px;
 }
 
+.loophole-reason-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* 漏洞原理样式 */
 .station-intro .loophole-reason {
   text-align: left;
+  padding: 0 20px;
 }
 
 /* 表格样式 */

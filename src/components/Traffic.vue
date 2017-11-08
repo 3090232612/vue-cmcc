@@ -13,31 +13,37 @@
         </el-container>
       </el-col>
     </el-container>
-    <el-container direction="vertical" class="traffic-intro">
+    <el-container class="traffic-intro" direction="vertical">
       <h2>漏洞危害</h2>
+      <el-container>
+        <el-col v-for="harmful in harmfuls" v-bind:key="harmful" class="station-harmful">
+            <el-row align="center">
+              <img :src="harmful.img" width="200px" height="200px" alt="">
+            </el-row>
+            <el-row align="center">
+              <h4>{{ harmful.description }}</h4>
+            </el-row>
+          </el-col>
+      </el-container>
+    </el-container>
+    <el-container direction="vertical" class="traffic-intro">
+      <h2>漏洞原理</h2>
       <el-col :span="20">
         <el-container>
           <el-col>
             <img :src="traffic2" alt="">
           </el-col>
-          <el-col class="loophole-reason">
-            <h3>
-              1) 对普通用户终端进行攻击，可在被攻击者无感知情况下发起流量耗尽攻击，产生流量恶意计费
-            </h3>
-            <h3>
-              2）利用多部终端对 PGW 网络设备形成 DoS 或 DDoS 攻击
-            </h3>
+          <el-col class="loophole-reason-col">
+            <el-col class="loophole-reason">
+              <h3>
+                步骤一、探测 LTE 终端地址：通过扫描探测发现存活的 IP 地址终端；<br>
+                步骤二、发起流量耗尽攻击：通过脚本向被攻击终端发起流量耗尽攻击，实验主机上开启多个进程、以 100KB/S 的速度发送 SYN 请求，被攻击终端对收到的指令不断进行 ACK 应答，从而在无感知情况下而消耗大量的数据流量；<br>
+                步骤三、形成 DoS 或 DDoS 攻击：在被攻击终端处理能力不足的情况下，将形成 DoS 攻击；利用多台手机对一台 PGW 设备形成有效 DDoS 攻击。
+              </h3>
+            </el-col>
           </el-col>
         </el-container>
       </el-col>
-    </el-container>
-    <el-container direction="vertical" class="traffic-intro">
-      <h2>漏洞原理</h2>
-      <h3>
-        步骤一、探测 LTE 终端地址：通过扫描探测发现存活的 IP 地址终端；<br>
-        步骤二、发起流量耗尽攻击：通过脚本向被攻击终端发起流量耗尽攻击，实验主机上开启多个进程、以 100KB/S 的速度发送 SYN 请求，被攻击终端对收到的指令不断进行 ACK 应答，从而在无感知情况下而消耗大量的数据流量；<br>
-        步骤三、形成 DoS 或 DDoS 攻击：在被攻击终端处理能力不足的情况下，将形成 DoS 攻击；利用多台手机对一台 PGW 设备形成有效 DDoS 攻击。
-      </h3>
     </el-container>
     <el-container direction="vertical" class="traffic-intro">
       <h2>修复方案</h2>
@@ -67,6 +73,9 @@
 <script>
   import traffic1 from '../assets/traffic/traffic_1.png'
   import traffic2 from '../assets/traffic/traffic_2.png'
+  import traffic21 from '../assets/traffic/traffic_2_1.png'
+  import traffic22 from '../assets/traffic/traffic_2_2.png'
+  import traffic23 from '../assets/traffic/traffic_2_3.png'
   import Sms41 from '../assets/sms/sms_4_1.jpg'
   import Sms42 from '../assets/sms/sms_4_2.jpg'
   import Sms43 from '../assets/sms/sms_4_3.jpg'
@@ -80,6 +89,20 @@
       return {
         traffic1,
         traffic2,
+        harmfuls: [
+          {
+            img: traffic21,
+            description: '危害一：探测大量手机IP'
+          },
+          {
+            img: traffic22,
+            description: '危害二：在普通用户无感知情况下发起流量耗尽攻击，产生流量恶意计费'
+          },
+          {
+            img: traffic23,
+            description: '危害三：利用多部终端对PGW网络设备形成DoS或DDoS攻击'
+          }
+        ],
         members: [
           Sms41,
           Sms42,
@@ -120,8 +143,9 @@
 }
 
 .traffic-intro h3, .traffic-intro span {
-  width: 60%;
+  /* width: 60%; */
   text-align: left;
+  padding: 0 20px;
 }
 
 @media (max-width: 768px) {
@@ -139,6 +163,10 @@ img {
 .team img {
   margin: 20px;
   border-radius: 60px;
+}
+
+.loophole-reason-col {
+  display: flex;
 }
 
 /* 漏洞原理样式 */
