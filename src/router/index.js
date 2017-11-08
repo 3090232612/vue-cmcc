@@ -5,6 +5,7 @@ import Lab from '@/components/Lab'
 import Sms from '@/components/Sms'
 import Traffic from '@/components/Traffic'
 import Call from '@/components/Call'
+import Station from '@/components/Station'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,11 @@ export default new VueRouter({
       path: '/call',
       name: 'Call',
       component: Call
+    },
+    {
+      path: '/station',
+      name: 'Station',
+      component: Station
     }
   ],
   scrollBehavior (to, from, savedPosition) {
