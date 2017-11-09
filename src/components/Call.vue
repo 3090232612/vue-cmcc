@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <Nav title="通话劫持" value5="5"></Nav>
+    <Nav title="通话劫持" value5="4"></Nav>
     <el-container class="call-intro">
       <el-col :span="20">
         <el-container direction="horizen">

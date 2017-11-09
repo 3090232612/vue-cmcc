@@ -6,6 +6,8 @@ import Sms from '@/components/Sms'
 import Traffic from '@/components/Traffic'
 import Call from '@/components/Call'
 import Station from '@/components/Station'
+import Info from '@/components/Info'
+import Wait from '@/components/Wait'
 
 Vue.use(VueRouter)
 
@@ -40,6 +42,16 @@ export default new VueRouter({
       path: '/station',
       name: 'Station',
       component: Station
+    },
+    {
+      path: '/info',
+      name: 'Info',
+      component: Info
+    },
+    {
+      path: '/wait',
+      name: 'Wait',
+      component: Wait
     }
   ],
   scrollBehavior (to, from, savedPosition) {

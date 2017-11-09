@@ -51,7 +51,7 @@
             name: '通话劫持'
           },
           {
-            url: '/bluetooth',
+            url: '/wait',
             img: loopholebluetooth,
             name: '蓝牙待定'
           },
@@ -66,12 +66,12 @@
             name: '信息泄漏'
           },
           {
-            url: '/wifi',
+            url: '/wait',
             img: loopholewifi,
             name: 'WiFi待定'
           },
           {
-            url: '/more',
+            url: '/wait',
             img: loopholemore,
             name: '更多'
           }
