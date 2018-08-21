@@ -20,20 +20,23 @@
         </el-rate>
       </el-container>
     </el-col>
-    <!-- 预留菜单 
+    <!-- 预留菜单-->
     <el-col class="nav">
-      
+
       <el-menu class="navmenu" mode="horizontal">
-        <el-menu-item index="1">处理中心</el-menu-item>
-        <el-submenu index="2">
+        <el-menu-item index="1"><a href="#lab">实验室介绍</a></el-menu-item>
+        <!--<el-submenu index="2">
           <template slot="title">我的工作台</template>
           <el-menu-item index="2-1">选项1</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
           <el-menu-item index="2-3">选项3</el-menu-item>
-        </el-submenu>
-        <el-menu-item index="3">订单管理</el-menu-item>
+        </el-submenu>-->
+        <el-menu-item index="2"><a href="#lab-direction">研究方向</a></el-menu-item>
+        <el-menu-item index="3"><a href="#lab-env">研究环境</a></el-menu-item>
+        <el-menu-item index="4"><a href="#lab-pride">研究成果</a></el-menu-item>
+        <el-menu-item index="5"><a href="#lab-team">研究团队</a></el-menu-item>
       </el-menu>
-    </el-col>-->
+    </el-col>
   </el-container>
 </template>
 
